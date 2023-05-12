@@ -38,47 +38,86 @@ if (isset($_POST["FullName"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry Form</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap link -->
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- font awesome -->
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500&display=swap" rel="stylesheet">
+    <!-- google fonts -->
 </head>
 
 <body>
 
-    <div>
+    <div class="entry">
         <div class="container">
+            <center>
+            <div class="main-text">
+            <h1>Entry Form</h1>
+            <p>Fill up the form with correct value</p>
+            </div>
             <div class="row">
-                <div class="col-sm-2">
+                <!-- <div class="col-md-12 py-6 py-md-0"> -->
                     <form action="" method="post">
-                        <h1>Entry Form</h1>
-                        <p>Fill up the form with correct value</p>
 
                         <hr class="mb-3">
+                        <div class="col-md-6">
                         <label for="name"><b>Name</b></label>
-                        <input type="text" name="FullName" required>
-
+                        <input type="text" placeholder="Enter Full Name" class="form-control" name="FullName" required>
+                        </div>
+                          
+                        
+                        <div class="col-md-6">
                         <label for="date"><b>Date Of Birth</b></label>
-                        <input type="date" name="date" required>
+                        <input type="date" placeholder="Enter Your Date of Birth" class="form-control" name="date" required>
+                        </div>
+                          
 
-
+                        <div class="col-md-6">
                         <label for="passport"><b>Passport</b></label>
-                        <input type="text" name="passport" required>
+                        <input type="text" placeholder="Enter Passport Number" class="form-control" name="passport" required>
+                        </div>
+                          
 
+                        <div class="col-md-6">
                         <label for="nid"><b>NID</b></label>
-                        <input type="text" name="nid" required>
+                        <input type="text" placeholder="Enter NID Number" class="form-control" name="nid" required>
+                        </div>
+                          
 
+                        <div class="col-md-6">
                         <label for="district"><b>District</b></label>
-                        <input type="text" name="district" required>
+                        <select class="form-control" name="district">
+                            <option selected>Choose your District</option>
+                            <option value="dhaka">Dhaka</option>
+                            <option value="Ctg">Ctg</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Barisal">Barisal</option>
+                        </select>
+                        </div>  
+              
                         <hr class="mb-3">
-
-                        <button class="btn btn-primary">Submit</button>
                         
                         <!-- <input class="btn btn-primary" type="submit" id="submit" name="create" value="submit"> -->
                     </form>
-                    <hr class="mb-3">
-                    <a href="index.php">
-                    <button class="btn btn-primary">Home</button>
-                    </a>
-                </div>
+                <!-- </div> -->
             </div>
+                    <button class="btn">Submit</button>
+                    
+                    <a href="index.php">
+                    <button class="btn">Home</button>
+                    </a>
+            </center>
         </div>
     </div>
 
