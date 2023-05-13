@@ -41,7 +41,7 @@ include 'config.php';
             if(isset($_POST['submit']))
             {
                 $search= $_POST['search'];
-                $sql= "Select * from `entry` where id='$search' or name='$search' or name='$search'
+                $sql= "Select * from `entry` where id='$search' or name='$search' or phone='$search'
                 or passport='$search' or nid='$search' or district='$search'";
                 $result=mysqli_query($conn,$sql);
                 if($result)
@@ -51,6 +51,7 @@ include 'config.php';
                         echo '<thead>
                         <tr>
                             <th>Name</th>
+                            <th>Phone No.</th>
                             <th>Passport</th>
                             <th>NID</th>
                             <th>District</th>
@@ -61,6 +62,7 @@ include 'config.php';
                         echo '<tbody>
                         <tr>
                             <td>'.$row['name'].'</td>
+                            <td>'.$row['phone'].'</td>
                             <td>'.$row['passport'].'</td>
                             <td>'.$row['nid'].'</td>
                             <td>'.$row['district'].'</td>     
@@ -70,7 +72,7 @@ include 'config.php';
                     }
                     else
                     {
-                        echo '<h2 class=text-danger >Data Not Found</h2>';
+                        echo '<h2>Data Not Found</h2>';
                     }
                     
                 }

@@ -6,11 +6,12 @@ if (isset($_POST["FullName"])) {
     //echo 'hitttttttttttttt';
     $name = $_POST['FullName'];
     $date = $_POST['date'];
+    $phone = $_POST['phone'];
     $passport = $_POST['passport'];
     $nid = $_POST['nid'];
     $district = $_POST['district'];
 
-    $sql = "INSERT INTO `entry`(`name`, `date`, `passport`, `nid`, `district`) VALUES('$name','$date','$passport','$nid','$district')";
+    $sql = "INSERT INTO `entry`(`name`, `date`,`phone`, `passport`, `nid`, `district`) VALUES('$name','$date',$phone,'$passport','$nid','$district')";
     // $stmtinsert = $db->prepare($sql);
     // $result = $stmtinsert->execute([$name, $date, $passport, $nid, $district]);
 
@@ -68,7 +69,7 @@ if (isset($_POST["FullName"])) {
                 <!-- <div class="col-md-12 py-6 py-md-0"> -->
                     <form action="" method="post">
 
-                        <hr class="mb-3">
+                        <hr class="mb-1">
                         <div class="col-md-6">
                         <label for="name"><b>Name</b></label>
                         <input type="text" placeholder="Enter Full Name" class="form-control" name="FullName" required>
@@ -79,7 +80,11 @@ if (isset($_POST["FullName"])) {
                         <label for="date"><b>Date Of Birth</b></label>
                         <input type="date" placeholder="Enter Your Date of Birth" class="form-control" name="date" required>
                         </div>
-                          
+
+                        <div class="col-md-6">
+                        <label for="passport"><b>Phone Number</b></label>
+                        <input type="text" placeholder="Enter Phone Number" class="form-control" name="phone" required>
+                        </div>        
 
                         <div class="col-md-6">
                         <label for="passport"><b>Passport</b></label>
@@ -109,17 +114,22 @@ if (isset($_POST["FullName"])) {
 
                         <button class="btn">Submit</button>
                         
+                        
                         <!-- <input class="btn btn-primary" type="submit" id="submit" name="create" value="submit"> -->
                     </form>
                 <!-- </div> -->
             </div>
                     
-                    <br>
-                    <a href="index.php">
-                    <button class="btn">Home</button>
-                    </a>
             </center>
+            <hr class="mb-1">
+            
         </div>
+        <center>
+            <a href="index.php">
+            <button class="btn">Home</button>
+            </a>
+        </center>
+
     </div>
 
     
