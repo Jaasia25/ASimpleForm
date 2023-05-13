@@ -105,15 +105,16 @@ if (isset($_POST["FullName"])) {
                             <option value="Barisal">Barisal</option>
                         </select>
                         </div>  
-              
-                        <hr class="mb-3">
+                        <br>
+
+                        <button class="btn">Submit</button>
                         
                         <!-- <input class="btn btn-primary" type="submit" id="submit" name="create" value="submit"> -->
                     </form>
                 <!-- </div> -->
             </div>
-                    <button class="btn">Submit</button>
                     
+                    <br>
                     <a href="index.php">
                     <button class="btn">Home</button>
                     </a>
