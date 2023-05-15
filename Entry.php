@@ -1,5 +1,13 @@
 <?php
 require_once('config.php');
+function isValidNumber(string $s){    
+    if(strlen($s)==11)
+    {
+        if(is_numeric($s) && $s[0]=='0' && $s[1]=='1')
+            return true;
+    }
+    return false;
+}
 
 
 if (isset($_POST["FullName"])) {
@@ -11,20 +19,31 @@ if (isset($_POST["FullName"])) {
     $nid = $_POST['nid'];
     $district = $_POST['district'];
 
+    // echo $phone;
+
     $sql = "INSERT INTO `entry`(`name`, `date`,`phone`, `passport`, `nid`, `district`) VALUES('$name','$date',$phone,'$passport','$nid','$district')";
     // $stmtinsert = $db->prepare($sql);
     // $result = $stmtinsert->execute([$name, $date, $passport, $nid, $district]);
 
     //echo 'Hit process';
-
-    if ($conn->query($sql) === TRUE) {
-        echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
-        echo '<script type="text/javascript">';
-        echo 'setTimeout(function () { swal("WOW!","Message!","success");';
-        echo '}, 1000);</script>';
-    } else {
-        //echo 'There were errors while Saving';
+    if(isValidNumber($phone))
+    {
+        if ($conn->query($sql) === TRUE ) {
+            // echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+            // echo '<script type="text/javascript">';
+            // echo 'setTimeout(function () { swal("WOW!","Message!","success");';
+            // echo '}, 1000);</script>';
+            echo "<script>alert('Phone Number valid');</script>";
+    
+        } else {
+            //echo 'There were errors while Saving';
+        }
     }
+    else
+    {
+        echo "<script>alert('Phone Number not valid');</script>";
+    }
+
 } else {
     //echo 'No Data';
 }
@@ -82,7 +101,7 @@ if (isset($_POST["FullName"])) {
                         </div>
 
                         <div class="col-md-6">
-                        <label for="passport"><b>Phone Number</b></label>
+                        <label for="phone"><b>Phone Number</b></label>
                         <input type="text" placeholder="Enter Phone Number" class="form-control" name="phone" required>
                         </div>        
 
