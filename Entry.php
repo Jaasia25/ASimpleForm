@@ -9,6 +9,15 @@ function isValidNumber(string $s){
     return false;
 }
 
+function isValidPassport(string $s){    
+    if(strlen($s)==11)
+    {
+        if(is_numeric($s) && $s[0]=='0' && $s[1]=='1')
+            return true;
+    }
+    return false;
+}
+
 
 if (isset($_POST["FullName"])) {
     //echo 'hitttttttttttttt';
