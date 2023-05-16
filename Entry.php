@@ -10,9 +10,17 @@ function isValidNumber(string $s){
 }
 
 function isValidPassport(string $s){    
-    if(strlen($s)==11)
+    if(strlen($s)==12)
     {
-        if(is_numeric($s) && $s[0]=='0' && $s[1]=='1')
+        return true;
+    }
+    return false;
+}
+
+function isValidNID(string $s){    
+    if(strlen($s)==10)
+    {
+        if(is_numeric($s))
             return true;
     }
     return false;
@@ -20,7 +28,7 @@ function isValidPassport(string $s){
 
 
 if (isset($_POST["FullName"])) {
-    //echo 'hitttttttttttttt';
+    
     $name = $_POST['FullName'];
     $date = $_POST['date'];
     $phone = $_POST['phone'];
@@ -28,29 +36,22 @@ if (isset($_POST["FullName"])) {
     $nid = $_POST['nid'];
     $district = $_POST['district'];
 
-    // echo $phone;
 
     $sql = "INSERT INTO `entry`(`name`, `date`,`phone`, `passport`, `nid`, `district`) VALUES('$name','$date',$phone,'$passport','$nid','$district')";
-    // $stmtinsert = $db->prepare($sql);
-    // $result = $stmtinsert->execute([$name, $date, $passport, $nid, $district]);
-
-    //echo 'Hit process';
-    if(isValidNumber($phone))
-    {
-        if ($conn->query($sql) === TRUE ) {
-            // echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
-            // echo '<script type="text/javascript">';
-            // echo 'setTimeout(function () { swal("WOW!","Message!","success");';
-            // echo '}, 1000);</script>';
-            echo "<script>alert('Phone Number valid');</script>";
     
-        } else {
-            //echo 'There were errors while Saving';
+    //echo $phone;
+
+    if(isValidNumber($phone) && isValidPassport($passport) && isValidNID($nid))
+    {
+        if ($conn->query($sql) === TRUE ) 
+        {
+            echo "<script>alert('User Submitted Successfully');</script>";
+    
         }
     }
     else
     {
-        echo "<script>alert('Phone Number not valid');</script>";
+        echo "<script>alert('Validation Failed');</script>";
     }
 
 } else {
@@ -129,9 +130,9 @@ if (isset($_POST["FullName"])) {
                         <div class="col-md-6">
                         <label for="district"><b>District</b></label>
                         <select class="form-control" name="district">
-                            <option selected>Choose your District</option>
-                            <option value="dhaka">Dhaka</option>
-                            <option value="Ctg">Ctg</option>
+                            <option selected value="Dhaka">Dhaka</option>
+                            <!-- <option value="Dhaka">Dhaka</option> -->
+                            <option value="Chattogram">Chattogram</option>
                             <option value="Rajshahi">Rajshahi</option>
                             <option value="Sylhet">Sylhet</option>
                             <option value="Khulna">Khulna</option>
